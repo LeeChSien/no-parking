@@ -16,3 +16,4 @@
 !/log/.keep
 /tmp
 .DS_Store
+data/red-wgs84.geojson
