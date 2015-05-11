@@ -5,18 +5,13 @@ source 'https://rails-assets.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.10'
 
-gem 'rack', '~> 1.5.2'
-
 group :development do
   gem 'thin'
   gem 'pg'
 end
 
 group :production do
-  gem 'puma'
   gem 'pg'
-  gem 'rails_12factor'
-  gem 'heroku-deflater'
 end
 
 # Use SCSS for stylesheets
