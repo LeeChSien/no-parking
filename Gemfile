@@ -5,6 +5,8 @@ source 'https://rails-assets.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.10'
 
+gem 'rack', '~> 1.5.2'
+
 group :development do
   gem 'thin'
   gem 'pg'
@@ -45,9 +47,6 @@ gem 'jbuilder', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# will_paginate is a pagination library that integrates with Ruby on Rails, Sinatra, Merb, DataMapper and Sequel.
-gem 'will_paginate', '~> 3.0.6'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -73,6 +72,9 @@ gem 'rgeo-geojson'
 
 # This is intended as a holder for geometric data.
 gem 'georuby'
+
+# will_paginate is a pagination library that integrates with Ruby on Rails, Sinatra, Merb, DataMapper and Sequel.
+gem 'will_paginate', '~> 3.0.6'
 
 # Generates javascript file that defines all Rails named routes as javascript helpers
 gem "js-routes"
