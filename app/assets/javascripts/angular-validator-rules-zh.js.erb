@@ -1,0 +1,61 @@
+<% I18n.locale = 'zh-TW' %>
+
+(function() {
+  var errors_messages_empty = "<%= I18n.t("errors.messages.empty") %>",
+      errors_messages_not_a_number = "<%= I18n.t("errors.messages.not_a_number") %>",
+      errors_messages_password_confirmation = "<%= I18n.t("errors.messages.password_confirmation") %>",
+      errors_messages_too_short_other = "<%= I18n.t("errors.messages.too_short.other", :count => 8) %>",
+      errors_messages_email = "<%= I18n.t("errors.messages.email") %>",
+      errors_messages_url = "<%= I18n.t("errors.messages.url") %>";
+
+  angular.module('validator.rules.zh', ['validator']).config([
+    '$validatorProvider', function($validatorProvider) {
+      $validatorProvider.register('required', {
+        invoke: 'watch',
+        validator: /.+/,
+        error: errors_messages_empty
+      });
+
+      $validatorProvider.register('number', {
+        invoke: 'watch',
+        validator: /^[-+]?[0-9]*[\.]?[0-9]*$/,
+        error: errors_messages_not_a_number
+      });
+
+      $validatorProvider.register('password_confirmation', {
+        invoke: 'watch',
+        validator: function(value, scope) {
+          if (value == scope.model.password)
+            return true;
+          else
+            return false;
+        },
+        error: errors_messages_password_confirmation
+      });
+
+      $validatorProvider.register('password_length', {
+        invoke: 'watch',
+        validator: function(value, scope) {
+          if (value.length >= 8)
+            return true;
+          else
+            return false;
+        },
+        error: errors_messages_too_short_other
+      });
+
+      $validatorProvider.register('email', {
+        invoke: 'blur',
+        validator: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        error: errors_messages_email
+      });
+
+      $validatorProvider.register('url', {
+        invoke: 'blur',
+        validator: /^(|https?:\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?)$/,
+        error: errors_messages_url
+      });
+    }
+  ]);
+
+}).call(this);

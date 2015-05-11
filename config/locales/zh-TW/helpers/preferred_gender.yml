@@ -1,0 +1,6 @@
+---
+zh-TW:
+  preferred_gender:
+    male: 限男
+    female: 限女
+    no_prefer: 不限

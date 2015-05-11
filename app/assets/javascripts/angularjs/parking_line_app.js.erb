@@ -1,0 +1,111 @@
+(function() {
+  var parkingLineApp = angularApplication.module('parkingLineApp',
+    ['leaflet-directive', 'ngMaterial']);
+
+  parkingLineApp.controller('mapViewCtrl', ['$scope', '$http',
+  function($scope, $http) {
+    var tilesDict = {
+          parkingLine: {
+            url: "/tiles/{z}/{x}/{y}.png",
+            options: {
+              zIndex: 100
+            }
+          }
+        },
+        layerDict = {
+          googleTerrain: {
+            name: 'Google Terrain',
+            layerType: 'TERRAIN',
+            type: 'google'
+          },
+          googleHybrid: {
+            name: 'Google Hybrid',
+            layerType: 'HYBRID',
+            type: 'google'
+          }
+        };
+
+    angular.extend($scope, {
+        center: {
+          lat: 25.047923,
+          lng: 121.5170907,
+          zoom: 16
+        },
+        defaults: {
+          scrollWheelZoom: false
+        },
+        layers: {
+          baselayers: layerDict
+        },
+        tiles: tilesDict.parkingLine,
+        events: {
+          map: {
+            enable: ['click'],
+            logic: 'emit'
+          },
+          markers: {
+            enable: ['dragend'],
+            logic: 'emit'
+          }
+        },
+        markers: {
+          CurrentLocation: {
+            lat: 25.047923,
+            lng: 121.5170907,
+            focus: true,
+            draggable: true
+          },
+          //CurrentParkingLine: null
+        },
+        geojson: {
+          data: null,
+          style: {
+            weight: 5,
+            opacity: 1,
+            color: 'red',
+          }
+        }
+    });
+
+    var updateNearestRedLine = function(lat, lng) {
+      var q_path = Routes.query_nearest_line_path({
+        lat: lat,
+        lng: lng
+      });
+
+      $http.get(q_path).success(function(result) {
+        $scope.geojson.data = result.geojson;
+
+        $scope.markers['CurrentParkingLine'] = {
+          lat: result.geojson.geometry.coordinates[0][0][1],
+          lng: result.geojson.geometry.coordinates[0][0][0],
+          focus: true,
+          icon: {
+            iconUrl: 'img/red_pin.png',
+            iconSize: [50, 65],
+            iconAnchor: [10, 55]
+          },
+          info: {
+            length: result.length,
+            maintained_at: result.maintained_at
+          }
+        };
+      });
+    };
+
+    $scope.$on('leafletDirectiveMap.click', function(event, args){
+      $scope.markers.CurrentLocation.lat = args.leafletEvent.latlng.lat;
+      $scope.markers.CurrentLocation.lng = args.leafletEvent.latlng.lng;
+
+      updateNearestRedLine(args.leafletEvent.latlng.lat, args.leafletEvent.latlng.lng);
+    });
+
+    $scope.$on('leafletDirectiveMarker.dragend', function(event, args){
+      $scope.markers.CurrentLocation.lat = args.model.lat;
+      $scope.markers.CurrentLocation.lng = args.model.lng;
+
+      updateNearestRedLine(args.model.lat, args.model.lng);
+    });
+
+  }]);
+})();

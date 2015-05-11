@@ -1,0 +1,21 @@
+{
+    "interactivity": "false", 
+    "_updated": "1431077628000", 
+    "scale": "1", 
+    "attribution": "", 
+    "center": "121.5618,25.0788,12", 
+    "format": "png8", 
+    "description": "Taipei Parking Line Information", 
+    "metatile": "2", 
+    "bounds": "121.4585,24.9624,121.6683,25.1891", 
+    "json": "{\"Stylesheet\":[{\"data\":\"#yellow_line {\\n  line-width:1;\\n  line-color:#FBB117;\\n}\\n\\n#red_line {\\n  line-width:1;\\n  line-color:#F75D59;\\n}\\n\",\"id\":\"style.mss\"}],\"Layer\":[{\"geometry\":\"linestring\",\"extent\":[121.4624488090071,24.964468806232688,121.66386782638644,25.177890061472393],\"id\":\"yellow_line\",\"class\":\"\",\"Datasource\":{\"file\":\"/Users/chsienlee/Documents/MapBox/project/ParkingLine/layers/yellow_line/yellow-wgs84.shp\",\"type\":\"shape\"},\"layer\":null,\"srs-name\":\"autodetect\",\"srs\":\"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\",\"advanced\":{},\"name\":\"yellow_line\"},{\"geometry\":\"linestring\",\"extent\":[121.46193415842386,24.965676279927735,121.62994277028626,25.185072472218614],\"id\":\"red_line\",\"class\":\"\",\"Datasource\":{\"file\":\"/Users/chsienlee/Documents/MapBox/project/ParkingLine/layers/red_line/red-84.shp\",\"type\":\"shape\"},\"layer\":null,\"srs-name\":\"autodetect\",\"srs\":\"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\",\"advanced\":{},\"name\":\"red_line\"}],\"tiles\":[\"http://127.0.0.1:20008/tile/ParkingLine/{z}/{x}/{y}.png?updated=1431077628000&metatile=2&scale=1\"],\"grids\":[\"http://127.0.0.1:20008/tile/ParkingLine/{z}/{x}/{y}.grid.json?updated=1431077628000&metatile=2&scale=1\"]}", 
+    "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over", 
+    "minzoom": "12", 
+    "version": "1.0.0", 
+    "template": "", 
+    "maxzoom": "18", 
+    "tilejson": "2.0.0", 
+    "scheme": "xyz", 
+    "id": "ParkingLine", 
+    "name": "ParkingLine"
+}

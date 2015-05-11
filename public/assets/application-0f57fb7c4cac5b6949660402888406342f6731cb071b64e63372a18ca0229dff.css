@@ -1,0 +1,42 @@
+/* line 1, /Users/chsienlee/RailsWorkspace/taipei-opendata/app/assets/stylesheets/main.css.scss */
+body, html {
+  height: 100%;
+}
+
+/* line 5, /Users/chsienlee/RailsWorkspace/taipei-opendata/app/assets/stylesheets/main.css.scss */
+body {
+  padding-top: 50px;
+  background: url("/img/seamless_paper_texture.png");
+}
+
+/* line 10, /Users/chsienlee/RailsWorkspace/taipei-opendata/app/assets/stylesheets/main.css.scss */
+.map-view {
+  height: 100%;
+}
+
+/* line 14, /Users/chsienlee/RailsWorkspace/taipei-opendata/app/assets/stylesheets/main.css.scss */
+.leaflet-container {
+  height: 100%;
+}
+
+/* line 18, /Users/chsienlee/RailsWorkspace/taipei-opendata/app/assets/stylesheets/main.css.scss */
+input {
+  text-align: right;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ *=
+
+ */
+
