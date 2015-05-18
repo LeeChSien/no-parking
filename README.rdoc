@@ -1,5 +1,5 @@
 No-parking
-----
+==============
 
 這是一個 Rails + POSTGIS 的範例
 
@@ -10,12 +10,12 @@ No-parking
 則是使用 POSTGIS 及 `activerecord-postgis-adapter` 完成
 
 Demo
-----
+==============
 
 http://noparking-chsien.rhcloud.com/
 
 Getting Start
-----
+==============
 
 匯入圖資請使用 `rake parse:import_geojson`
 
