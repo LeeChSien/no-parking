@@ -3,10 +3,6 @@ class MainController < ApplicationController
     set_ng_app('parkingLineApp')
   end
 
-  def ding
-    set_ng_app('dingApp')
-  end
-
   # API
   def query_nearest_line
     nearest_line = ParkingLine.find_nearest_line(params[:lat], params[:lng])
