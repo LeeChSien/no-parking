@@ -19,4 +19,6 @@ Getting Start
 
 匯入圖資請使用 `rake parse:import_geojson`
 
-因為 Github 有檔案大小限制，台北市禁止停車紅線 Geojson 放在這：
+因為 Github 有檔案大小限制
+
+台北市禁止停車紅線 Geojson 放在這：https://goo.gl/Vq0kvb
